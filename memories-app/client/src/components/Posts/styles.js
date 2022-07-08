@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { findByLabelText } from '@testing-library/react';
 
 export default makeStyles((theme) => ({
   mainContainer: {
@@ -11,5 +10,5 @@ export default makeStyles((theme) => ({
   },
   actionDiv: {
     textAlign: 'center',
-  }
+  },
 }));
