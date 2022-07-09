@@ -8,11 +8,11 @@ const router = express.Router();
 
 export const getPosts = async (req, res) => { 
     try {
-        const postMessages = await PostMessage.find();
+      const postMessages = await PostMessage.find();
                 
-        res.status(200).json(postMessages);
+      res.status(200).json(postMessages);
     } catch (error) {
-        res.status(404).json({ message: error.message });
+      res.status(404).json({ message: error.message });
     }
 }
 
@@ -64,7 +64,7 @@ export const deletePost = async (req, res) => {
 
   console.log('DELETE!');
 
-  res.json({ message: 'Post deleted successfully' });
+  res.json({ message: 'Post deleted successfully.' });
 }
 
 export const likePost = async (req, res) => {
