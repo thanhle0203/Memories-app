@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
-import memories from './images/memories.png';
-import useStyles from './styles';
-
+import Navbar from './components/Navbar/Navbar';
 import { getPosts } from './actions/posts';
+import useStyles from './styles';
 
 
 const App = () => {
   const [currentId, setCurrentId] = useState(0);
-  const classes = useStyles();
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   useEffect(() => {
     dispatch(getPosts()); 
@@ -21,10 +20,7 @@ const App = () => {
 
   return (
     <Container maxidth='lg'>
-      <AppBar className={classes.appBar} position='static' color='inherit'>
-        <Typography className={classes.heading} variant='h2' align='center'>Memories</Typography>
-        <img className={classes.image} src={memories} alt='icon' height='60' />
-      </AppBar>
+      <Navbar />
 
       <Grow in>
         <Container>
