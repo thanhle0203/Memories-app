@@ -43,6 +43,12 @@ export default makeStyles((theme) => ({
       justifyContent: 'center',
     },
   },
+  login: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginRight: '20px',
+    alignItems: 'right',
+  },
   logout: {
     marginLeft: '20px',
   },
