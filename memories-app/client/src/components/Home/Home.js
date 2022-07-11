@@ -17,16 +17,16 @@ const Home = () => {
   return (
     <Grow in>
         <Container>
-        <Grid container justifyContent='space-between' alignItems='stretch' spacing={3} margin-top='50px'>
-            <Grid item xs={12} sm={7} >
-                <Posts setCurrentId={setCurrentId}  />
-            </Grid>
+            <Grid container justifyContent='space-between' alignItems='stretch' spacing={3} margin-top='50px'>
+                <Grid item xs={12} sm={7} >
+                    <Posts setCurrentId={setCurrentId}  />
+                </Grid>
 
-            <Grid item xs={12} sm={4}>
-                <Form currentId={currentId} setCurrentId={setCurrentId} />
-            </Grid>
+                <Grid item xs={12} sm={4}>
+                    <Form currentId={currentId} setCurrentId={setCurrentId} />
+                </Grid>
 
-        </Grid>
+            </Grid>
         </Container>
     </Grow>
   );

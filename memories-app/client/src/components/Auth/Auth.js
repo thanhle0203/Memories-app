@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core';
+import { Avatar, Button, Paper, Grid, Typography, Container, Icon } from '@material-ui/core';
+import { GoogleLogin } from 'react-google-login';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyle from './styles';
 import Input from './Input';
@@ -10,6 +14,8 @@ const Auth = () => {
   const [ showPassword, setShowPassword] = useState(false);
 
   const [isSignup, setIsSignup] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
@@ -26,9 +32,24 @@ const Auth = () => {
     handleShowPassword(false);
   }
 
+  const googleSuccess = async (res) => {
+    const result = res?.profileObj; // cannot get property profileObj of underfined
+    const token = res?.tokenId;
+
+    try {
+      dispatch({ type: 'Auth', data: { result, token } });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const googleFailure = () => {
+    console.log('Google Sign In was unsuccessful. Try Again Later');
+  }
+
 
   return (
-    <Container className='main' maxWidth='xs' >
+    <Container component='main' maxWidth='xs' >
       <Paper className={classes.paper} elevation={3}>
         <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -40,7 +61,7 @@ const Auth = () => {
               isSignup && (
                 <>
                   <Input name='firstName' label='First Name' handleChange={handleChange} autoFocus half></Input>
-                  <Input name='lastName' label='Last Name' handleChange={handleChange} autoFocus></Input>
+                  <Input name='lastName' label='Last Name' handleChange={handleChange} autoFocus half></Input>
                 </>
               )
             }
@@ -53,7 +74,27 @@ const Auth = () => {
             {isSignup ? 'Sign Up' : 'Sign In'}
           </Button>
 
-          <Grid container justify='flex-end'>
+          <GoogleLogin
+            clientId = '193456760660-1qh2p6v5u4p4qugm6vav30iheedldnos.apps.googleusercontent.com'
+            render={(renderProps) => (
+              <Button 
+                className={classes.googleButton} 
+                color='primary' 
+                fullWidth 
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+                startIcon={<Icon />}
+                variant='contained'
+                 >
+                Google Sign In
+              </Button>
+            )}
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+            cookiePolicy='single_host_origin'
+           />
+
+          <Grid container justifyContent='flex-end'>
             <Grid item>
               <Button onClick={switchMode}>
                 { isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign Up" }

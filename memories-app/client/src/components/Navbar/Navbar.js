@@ -11,8 +11,7 @@ const Navbar = () => {
   const user = null;
 
   return (
-    <div>
-      <AppBar className={classes.AppBar} position='static' color='inherit'>
+    <AppBar className={classes.AppBar} position='static' color='inherit'>
         <div className={classes.brandContainer}>
             <Typography component={Link} to='/' className={classes.heading} variant='h1' align='center'>Memories</Typography>
             <img className={classes.image} src={memories} alt='icon' height='60' />
@@ -40,8 +39,7 @@ const Navbar = () => {
           )}
         </Toolbar>
             */}
-            </AppBar> 
-    </div>
+    </AppBar> 
   )
 }
 
