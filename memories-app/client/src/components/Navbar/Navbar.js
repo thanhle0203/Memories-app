@@ -14,11 +14,22 @@ const Navbar = () => {
     <div>
       <AppBar className={classes.AppBar} position='static' color='inherit'>
         <div className={classes.brandContainer}>
-            <Typography component={Link} to='/' className={classes.heading} variant='h2' align='center'>Memories</Typography>
+            <Typography component={Link} to='/' className={classes.heading} variant='h1' align='center'>Memories</Typography>
             <img className={classes.image} src={memories} alt='icon' height='60' />
+
+            <Toolbar className={classes.toolbar}>
+            {user ? (
+                <div className={classes.profile}>
+                <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+                <Typography className={classes.userName} variant='h6'>{user.result.name}</Typography>
+                <Button variant='contained' className={classes.logout} color='secondary'>Logout</Button>
+                </div> ): (
+                <Button component={Link} to='/auth' className={classes.login} variant='contained' color='primary'>Sign In</Button>
+            )}
+            </Toolbar>
         </div>
 
-        <Toolbar className={classes.toolbar}>
+       {/* <Toolbar className={classes.toolbar}>
           {user ? (
             <div className={classes.profile}>
               <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
@@ -28,7 +39,8 @@ const Navbar = () => {
             <Button component={Link} to='/auth' className={classes.login} variant='contained' color='primary'>Sign In</Button>
           )}
         </Toolbar>
-      </AppBar>
+            */}
+            </AppBar> 
     </div>
   )
 }

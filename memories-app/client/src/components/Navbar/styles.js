@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
     margin: '30px 0',
+    marginBottom: '200px',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -31,6 +32,7 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
     },
+    marginRight: '20px',
   },
   profile: {
     display: 'flex',
@@ -44,7 +46,6 @@ export default makeStyles((theme) => ({
     },
   },
   login: {
-    display: 'flex',
     justifyContent: 'flex-end',
     marginRight: '20px',
     alignItems: 'right',
@@ -59,6 +60,7 @@ export default makeStyles((theme) => ({
   },
   brandContainer: {
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   purple: {
