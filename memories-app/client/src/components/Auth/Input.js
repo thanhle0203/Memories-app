@@ -30,4 +30,46 @@ const Input = ({name, handleChange, label, autoFocus, type, handleShowPassword, 
   )
 }
 
+{/*
+const Input = ({toggle_password, handleChange, values }) => {
+  return (
+    <TextField
+  margin = "normal"
+  required
+  fullWidth
+  name = "password"
+  label = "Password"
+  type = { toggle_password ? "text" : "password" }
+  id = "password"
+  size = "small"
+  autoComplete = "current-password"
+  onChange = { handleChange }
+  value = { values.password }
+  InputProps = {
+  {
+    endAdornment: ( 
+    <InputAdornment position="end"> {
+        toggle_password ? ( 
+        <Visibility className = "cursor_pointer"
+          onClick = {
+            this.togglePasswordHide
+          }
+          />
+        ) : ( 
+        <VisibilityOff onClick = {
+            this.togglePasswordHide
+          }
+          />
+        )
+      } 
+      </InputAdornment>
+    ),
+  }
+}
+/>
+  )
+}
+*/}
+
+
 export default Input
