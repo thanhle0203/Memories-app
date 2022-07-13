@@ -91,9 +91,13 @@ const Auth = () => {
 
           <GoogleLogin
             clientId = '193456760660-1qh2p6v5u4p4qugm6vav30iheedldnos.apps.googleusercontent.com'
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+            cookiePolicy='single_host_origin'
             render={(renderProps) => (
               <Button 
                 className={classes.googleButton} 
+                type='button'
                 color='primary' 
                 fullWidth 
                 onClick={renderProps.onClick}
@@ -104,9 +108,7 @@ const Auth = () => {
                 Google Sign In
               </Button>
             )}
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-            cookiePolicy='single_host_origin'
+            
            />
 
           <Grid container justifyContent='flex-end'>
