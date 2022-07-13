@@ -5,6 +5,7 @@ import { useDispatch} from 'react-redux';
 import decode from 'jwt-decode';
 import useStyles from './styles';
 import memories from '../../images/memories.png';
+import { LOGOUT } from '../../constants/actionTypes';
 
 const Navbar = () => {
   const classes = useStyles();
