@@ -1,7 +1,7 @@
-import { sign } from 'core-js/core/number';
+
 import express from 'express';
 
-import { signin, signup } from '../controllers/posts.js';
+import { signin, signup } from '../controllers/user';
 
 const router = express.Router();
 
